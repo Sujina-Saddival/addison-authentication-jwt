@@ -1,0 +1,9 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tasks.js",
+  "author": "addison",
+  "addison-template": "0.18.0",
+  "license": "MIT"
+}

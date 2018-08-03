@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Super Admin",
+    "email": "admin@yopmail.com",
+    "password": "password",
+    "scope": "admin"
+  },
+  {
+    "name": "Sujina",
+    "email": "sujina@yopmail.com",
+    "password": "password",
+    "scope": "user"
+  }
+]

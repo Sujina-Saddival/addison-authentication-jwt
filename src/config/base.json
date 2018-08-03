@@ -1,0 +1,35 @@
+{
+	"registrations": [
+		{
+			"plugin": {
+				"register": "good",
+				"options": {
+					"reporters": {
+						"consoleReporter": [
+							{
+								"module": "good-squeeze",
+								"name": "Squeeze",
+								"args": [
+									{
+										"request": "*",
+										"error": "*"
+									}
+								]
+							},
+							{
+								"module": "good-console"
+							},
+							"stdout"
+						]
+					}
+				}
+			}
+		}, 
+		{
+			"plugin": {
+				"register": "hapi-auth-jwt2",
+				"options": {}
+			}
+		}
+	]
+}

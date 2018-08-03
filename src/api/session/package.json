@@ -1,0 +1,9 @@
+{
+  "name": "session",
+  "version": "1.0.0",
+  "description": "",
+  "main": "session.js",
+  "author": "addison",
+  "addison-template": "0.18.0",
+  "license": "MIT"
+}
