@@ -44,3 +44,21 @@ routes.push({
     },
   },
 });
+
+routes.push({
+  method: 'GET',
+  path: '/api/allTasks',
+  config: {
+    description: 'fetch',
+    notes: 'Test Notes',
+    tags: ['api'],
+    security: {
+      xframe: 'sameorigin',
+    },
+    cache: {
+      otherwise: 'no-cache, no-store, must-revalidate',
+    },
+    handler: Handlers.getAllApiTasks,
+    auth: false,
+  },
+});
