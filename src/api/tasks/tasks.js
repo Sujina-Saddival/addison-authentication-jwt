@@ -2,18 +2,22 @@
 
 const Handlers = require('./tasks-handlers.js');
 const authorize = require('../../lib/authenticate');
+const vaultGetKey = require('../vault/vault-handlers').vaultGetKey;
 const routes = [];
 
-exports.register = function (server, options, next) {
+exports.register = async function (server, options, next) {
 
   const validateUser = (decoded, request, callback) => {
     authorize.validateUser(request, callback);
   };
 
+  const response = await vaultGetKey();
+  const jwt_key = response.status === 200 ? response.data.data.JWT_PRIVATE_KEY : false;
+
   server.auth.strategy('jwt', 'jwt', 'required',
     {
       complete: true,
-      key: '_HPE_JWT_SECRET_ABC_1234', // secret key
+      key: jwt_key, // secret key
       validateFunc: validateUser, // validate function defined above
       verifyOptions: { algorithms: ['HS256'] }, // pick a strong algorithm
     });
@@ -44,3 +48,4 @@ routes.push({
     },
   },
 });
+

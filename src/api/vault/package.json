@@ -1,0 +1,9 @@
+{
+  "name": "vault",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vault.js",
+  "author": "vault",
+  "addison-template": "0.18.0",
+  "license": "MIT"
+}
