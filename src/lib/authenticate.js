@@ -1,12 +1,18 @@
 const jwt = require('jsonwebtoken');
+const vaultGetKey = require("../api/vault/vault-handlers").vaultGetKey;
 const authorize = {};
 
-authorize.validateUser = (request, callback) => {
-  try {
-    jwt.verify(request.headers.authorization, '_HPE_JWT_SECRET_ABC_1234');
-    return callback(null, true);
-  } catch (error) {
-    return callback(null, false);
+authorize.validateUser = async (request, callback) => {
+  const response = await vaultGetKey();
+  if (response.status === 200) {
+    try {
+      jwt.verify(request.headers.authorization, response.data.data.JWT_PRIVATE_KEY);
+      return callback(null, true);
+    } catch (error) {
+      return callback(null, false);
+    }
+  } else {
+    return callback(response.error, false);
   }
 }
 
