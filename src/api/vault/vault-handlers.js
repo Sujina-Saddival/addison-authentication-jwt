@@ -5,7 +5,7 @@ function saveKey(request, reply) {
   axios.post('http://127.0.0.1:8200/v1/secret/jwt_private_key', { JWT_PRIVATE_KEY: request.payload.key },
     {
       headers: {
-        'X-Vault-Token': 'ef9269d8-014b-e10b-b8d6-30e9395b5cd6',
+        'X-Vault-Token': process.env.vaultToken,
       }
     }
   )
@@ -26,7 +26,7 @@ async function vaultGetKey() {
   return await axios.get('http://127.0.0.1:8200/v1/secret/jwt_private_key',
     {
       headers: {
-        'X-Vault-Token': 'ef9269d8-014b-e10b-b8d6-30e9395b5cd6',
+        'X-Vault-Token': process.env.vaultToken,
       }
     }
   )
