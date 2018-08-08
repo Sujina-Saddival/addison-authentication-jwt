@@ -6,8 +6,8 @@
     "scope": "admin"
   },
   {
-    "name": "Sujina",
-    "email": "sujina@yopmail.com",
+    "name": "Dummy",
+    "email": "dummy@yopmail.com",
     "password": "password",
     "scope": "user"
   }

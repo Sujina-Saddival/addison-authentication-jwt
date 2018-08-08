@@ -3,6 +3,7 @@
 const Handlers = require('./tasks-handlers.js');
 const authorize = require('../../lib/authenticate');
 const vaultGetKey = require('../vault/vault-handlers').vaultGetKey;
+const Joi = require('joi');
 const routes = [];
 
 exports.register = async function (server, options, next) {
@@ -33,7 +34,7 @@ routes.push({
   method: 'GET',
   path: '/api/tasks',
   config: {
-    description: 'fetch',
+    description: 'Fetch all tasks if the user is authenticated',
     notes: 'Test Notes',
     tags: ['api'],
     security: {
