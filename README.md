@@ -30,10 +30,16 @@ Use the following for non-Windows systems: `"/C=US/ST=California/L=Palo Alto/O=H
 
 
 Vault
+
+
 Refer: https://www.vaultproject.io/intro/getting-started/apis.html
+
+
 Note: Keys should be saved somewhere for dev ENV
 
 1. Create a file in root - vault-config.hcl
+
+    ```
     Add the following lines  -
     backend "file" {
       path = "vault"
@@ -42,14 +48,21 @@ Note: Keys should be saved somewhere for dev ENV
     listener "tcp" {
       tls_disable = 1
     }
+    ```
 
-2. Run the vault server - vault server -config=config.hcl
+2. Run the vault server
+    ```
+    vault server -config=config.hcl
+    ```
 
 3. Init vault
-  curl \
-  --request POST \
-  --data '{"secret_shares": 1, "secret_threshold": 1}' \
-  http://127.0.0.1:8200/v1/sys/init
+
+    ```
+    curl \
+    --request POST \
+    --data '{"secret_shares": 1, "secret_threshold": 1}' \
+    http://127.0.0.1:8200/v1/sys/init
+    ```
 
 4. From the above command, Save the response which contains keys and root_token
 
