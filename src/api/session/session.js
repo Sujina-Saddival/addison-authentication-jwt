@@ -15,7 +15,7 @@ routes.push({
   method: 'POST',
   path: '/api/signin',
   config: {
-    description: 'login',
+    description: 'login using jwt',
     notes: 'Test Notes',
     tags: ['api'],
     auth: false,

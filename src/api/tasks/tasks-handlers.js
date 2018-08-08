@@ -1,7 +1,7 @@
 'use strict';
 
 function getApiTasks (request, reply) {
-  reply('Hello from get /api/tasks');
+  reply('You are authenticated to see all the tasks!');
 }
 
 exports.getApiTasks = getApiTasks;
